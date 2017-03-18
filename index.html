@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <title>Simple Simon Says</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="simple-simon-says">
       <center>
         <h1>Simple Simon Says</h1>
-        <button class="button">Click Me!</button>
+        <button class="button" id="click-me">Click Me!</button>
       </center>
     </div>
     <div class="box">
@@ -28,4 +29,23 @@
       <div class="child-box" id="box-9"></div>
     </div>
   </body>
+  <script>
+    $(document).ready(function() {
+      // Generate Random Color
+      function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++ ) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      $('#click-me').click(function() {
+        var randomNumber = Math.floor(Math.random() * 9) + 1
+        var randomColor = getRandomColor()
+        $(`#box-${randomNumber}`).css("background-color", randomColor);
+      })
+    })
+  </script>
 </html>
