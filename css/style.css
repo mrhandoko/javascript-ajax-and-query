@@ -1,6 +1,11 @@
 html *
 {
-   font-family: Arial !important;
+  margin: 0px;
+  font-family: Arial !important;
+}
+
+.container {
+  margin-left: 30px;
 }
 
 .simple-simon-says {
